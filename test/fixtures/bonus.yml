@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sc_attribute: MyString
+  air: false
+  ground: false
+  damage: 1
+  damage_upgrade: 1
+  shield_damage: 1
+  health_decrease: 1
+  attack: one
+
+two:
+  sc_attribute: MyString
+  air: false
+  ground: false
+  damage: 1
+  damage_upgrade: 1
+  shield_damage: 1
+  health_decrease: 1
+  attack: two

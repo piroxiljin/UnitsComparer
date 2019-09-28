@@ -1,0 +1,15 @@
+<h1>Attributes</h1>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Name</th>
+    <th>Short</th>
+  </tr>
+    <% @sc_attributes.each do |sc_attribute| %>
+      <tr>
+        <td><%= sc_attribute.attr_type %></td>
+        <td><%= sc_attribute.name %></td>
+        <td><%= sc_attribute.short %></td>
+      </tr>
+    <% end %>
+</table>

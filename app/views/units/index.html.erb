@@ -1,0 +1,16 @@
+<h1>List of units</h1>
+<table>
+  <%= render 'table_header' do %>
+    <th colspan="3"></th>
+  <% end %>
+ 
+  <% @units.each do |unit| %>
+    <%= render 'table_unit_row', unit: unit do |u| %>
+      <td><%= link_to 'Show', unit_path(u) %></td>
+      <td><%= link_to 'Edit', edit_unit_path(u) %></td>
+      <td><%= link_to 'Destroy', unit_path(unit),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  <% end %>
+</table>

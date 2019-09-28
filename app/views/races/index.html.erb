@@ -1,0 +1,10 @@
+<h1>Races</h1>
+<% @races.each do |race| %>
+  <h2>
+    <%= race.name %>
+  </h2>
+  <p>
+    Available <%= pluralize(race.units.size, 'unit') %>
+  </p>
+  <%= link_to 'Add unit', new_unit_path %>
+<% end %>

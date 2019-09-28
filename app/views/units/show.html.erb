@@ -1,0 +1,13 @@
+<p>
+  <strong>Unit</strong>
+  <%= @unit.name %>
+  <strong>Race</strong>
+  <%= @unit.race.name %>
+</p>
+<table>
+<table>
+  <%= render 'table_header' %>
+  <%= render 'table_unit_row', unit: @unit %>
+</table>
+
+<%= link_to  "Back", units_path %>

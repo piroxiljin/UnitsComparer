@@ -1,0 +1,116 @@
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable1,0
+  class Channel < ActionCable::Channel::BaseChannel2,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel2,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable1,0
+  class Connection < ActionCable::Connection::BaseConnection2,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection2,0
+
+app/controllers/application_controller.rb,79
+class ApplicationController < ActionController::BaseApplicationController1,0
+
+app/controllers/attacks_controller.rb,70
+class AttacksController < ApplicationControllerAttacksController1,0
+
+app/controllers/bonuses_controller.rb,70
+class BonusesController < ApplicationControllerBonusesController1,0
+
+app/controllers/units_controller.rb,106
+class UnitsController < ApplicationControllerUnitsController1,0
+  def indexindex2,0
+  def newnew6,0
+
+app/helpers/application_helper.rb,47
+module ApplicationHelperApplicationHelper1,0
+
+app/helpers/attacks_helper.rb,39
+module AttacksHelperAttacksHelper1,0
+
+app/helpers/bonuses_helper.rb,39
+module BonusesHelperBonusesHelper1,0
+
+app/helpers/units_helper.rb,35
+module UnitsHelperUnitsHelper1,0
+
+app/jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob1,0
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer1,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord1,0
+
+app/models/attack.rb,206
+class Attack < ApplicationRecordAttack1,0
+  belongs_to :unitunit2,0
+  belongs_to :unitunit=2,0
+  belongs_to :unitbuild_unit2,0
+  belongs_to :unitcreate_unit2,0
+  belongs_to :unitcreate_unit!2,0
+
+app/models/bonus.rb,224
+class Bonus < ApplicationRecordBonus1,0
+  belongs_to :attackattack2,0
+  belongs_to :attackattack=2,0
+  belongs_to :attackbuild_attack2,0
+  belongs_to :attackcreate_attack2,0
+  belongs_to :attackcreate_attack!2,0
+
+app/models/unit.rb,40
+class Unit < ApplicationRecordUnit1,0
+
+config/application.rb,170
+module UnitsComparerUnitsComparer9,0
+  class Application < Rails::ApplicationApplication10,0
+  class Application < Rails::ApplicationUnitsComparer::Application10,0
+
+db/migrate/20190927171105_create_units.rb,89
+class CreateUnits < ActiveRecord::Migration[5.2]CreateUnits1,0
+  def changechange2,0
+
+db/migrate/20190927174122_create_attacks.rb,93
+class CreateAttacks < ActiveRecord::Migration[5.2]CreateAttacks1,0
+  def changechange2,0
+
+db/migrate/20190927180524_create_bonus.rb,89
+class CreateBonus < ActiveRecord::Migration[5.2]CreateBonus1,0
+  def changechange2,0
+
+db/migrate/20190927182918_create_bonuses.rb,93
+class CreateBonuses < ActiveRecord::Migration[5.2]CreateBonuses1,0
+  def changechange2,0
+
+test/application_system_test_case.rb,95
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCaseApplicationSystemTestCase3,0
+
+test/controllers/attacks_controller_test.rb,88
+class AttacksControllerTest < ActionDispatch::IntegrationTestAttacksControllerTest3,0
+
+test/controllers/attack_controller_test.rb,86
+class AttackControllerTest < ActionDispatch::IntegrationTestAttackControllerTest3,0
+
+test/controllers/bonuses_controller_test.rb,88
+class BonusesControllerTest < ActionDispatch::IntegrationTestBonusesControllerTest3,0
+
+test/controllers/units_controller_test.rb,84
+class UnitsControllerTest < ActionDispatch::IntegrationTestUnitsControllerTest3,0
+
+test/models/attack_test.rb,58
+class AttackTest < ActiveSupport::TestCaseAttackTest3,0
+
+test/models/bonus_test.rb,56
+class BonusTest < ActiveSupport::TestCaseBonusTest3,0
+
+test/models/bonu_test.rb,54
+class BonuTest < ActiveSupport::TestCaseBonuTest3,0
+
+test/models/unit_test.rb,54
+class UnitTest < ActiveSupport::TestCaseUnitTest3,0
+
+test/test_helper.rb,101
+class ActiveSupport::TestCaseTestCase5,0
+class ActiveSupport::TestCaseActiveSupport::TestCase5,0

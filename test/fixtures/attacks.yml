@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  air: false
+  ground: false
+  melee: false
+  range: 1
+  range_upgrade: 1
+  damage: 1
+  damage_upgrade: 1
+  unit: one
+
+two:
+  air: false
+  ground: false
+  melee: false
+  range: 1
+  range_upgrade: 1
+  damage: 1
+  damage_upgrade: 1
+  unit: two

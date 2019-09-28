@@ -1,0 +1,55 @@
+<% if unit.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+        <%= pluralize(unit.errors.count, "error") %> prohibited
+        this unit from being added:
+        </h2>
+        <ul>
+        <% unit.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+  
+<%= form_with model: unit, local: true do |form| %>  
+
+  <p>
+    <%= form.label :race %>
+    <%= select(:unit, :race, @races.collect {|r| [r.name, r.id] }, {}, {index: :race}) %>
+
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :supply %>
+    <%= form.number_field :supply, in: 0..8, value: 1 %>
+    <%= form.label :minerals %>
+    <%= form.number_field :minerals, in: 0..400, value: 50 %>
+    <%= form.label :gas %>
+    <%= form.number_field :gas, in: 0..400, value: 0 %>
+    <%= form.label :build_time %>
+    <%= form.number_field :build_time, in: 0..180, value: 8 %>
+  </p>
+    <%= form.label :size %>
+    <%= form.number_field :size, in: 0.0..5, step: 0.25, value: 0.75 %>
+    <%= form.label :cargo %>
+    <%= select('unit', :cargo, [['-', -1],['1', 1], ['2', 2], ['4', 4], ['8', 8]]) %>
+  <p>
+    <%= form.label :armor %>
+    <%= form.number_field :armor, in: 0..10, value: 0 %>
+    <%= form.label :armor_upgrade %>
+    <%= form.number_field :armor_upgrade, in: 0..2, value: 1 %>
+    <%= form.label :health %>
+    <%= form.number_field :health, in: 0..1500, value: 45 %>
+    <%= form.label :shield %>
+    <%= form.number_field :health, in: 0..400, value: 0 %>
+  </p>
+  <p>
+    <%= form.label 'attributes'.humanize %>
+    <%= collection_check_boxes(:unit, :sc_attributes, @sc_attributes, :short, :name )%>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

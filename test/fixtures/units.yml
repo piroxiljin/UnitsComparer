@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  supply: 1
+  minerals: 1
+  gas: 1
+  build_time: 1
+  size: 1.5
+  cargo: 
+  armor: 1
+  armor_upgrade: 1
+  health: 1
+  shield: 1
+  sc_attributes: MyString
+  cooldown: 1.5
+  speed: 1.5
+  range: 1
+  range_upgrade: 1
+  melee: false
+  sight: 1
+  sight_upgrade: 1
+  air: false
+  race: 1
+
+two:
+  supply: 1
+  minerals: 1
+  gas: 1
+  build_time: 1
+  size: 1.5
+  cargo: 
+  armor: 1
+  armor_upgrade: 1
+  health: 1
+  shield: 1
+  sc_attributes: MyString
+  cooldown: 1.5
+  speed: 1.5
+  range: 1
+  range_upgrade: 1
+  melee: false
+  sight: 1
+  sight_upgrade: 1
+  air: false
+  race: 1
