@@ -47,7 +47,7 @@
   </p>
   <p>
     <%= form.label 'attributes'.humanize %>
-    <%= collection_check_boxes(:unit, :sc_attributes, @sc_attributes, :short, :name )%>
+    <%= form.collection_check_boxes(:sc_attributes, @sc_attributes, :short, :name, checked: JSON.parse(unit[:sc_attributes]) )%>
   </p>
   <p>
     <%= form.submit %>
