@@ -16,7 +16,7 @@
 
   <p>
     <%= form.label :race %>
-    <%= select(:unit, :race, @races.collect {|r| [r.name, r.id] }, {}, {index: :race}) %>
+    <%= select(:unit, :race_id, @races.collect {|r| [r.name, r.id] }) %>
 
     <%= form.label :name %>
     <%= form.text_field :name %>
