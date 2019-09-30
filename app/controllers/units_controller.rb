@@ -27,7 +27,7 @@ class UnitsController < ApplicationController
     @sc_attributes = ScAttribute.all
     @races = Race.all
     local_params = unit_params
-    race = Race.find(local_params[:race])
+    race = Race.find(local_params[:race_id])
     # race = Race.find(1)
     local_params[:race] = race
     @unit = race.units.build(local_params)
@@ -43,7 +43,7 @@ class UnitsController < ApplicationController
     @sc_attributes = ScAttribute.all
     @races = Race.all
     local_params = unit_params
-    race = Race.find(local_params[:race])
+    race = Race.find(local_params[:race_id])
     local_params[:race] = race
     @unit = Unit.find(params[:id])
    
@@ -58,12 +58,12 @@ class UnitsController < ApplicationController
     def unit_params
       puts params
       params.require(:unit).permit(:name, :supply, :minerals, :gas, :build_time, :size, 
-        :armor, :armor_upgrade, :health, :race, :cargo, :sc_attributes => [])
+        :armor, :armor_upgrade, :health, :race_id, :cargo, :sc_attributes => [])
         # :shield,  :speed, :sight, :sight_upgrade
       #params.require(:post).permit(:race, :cargo, :sc_attributes => [])
       puts params
  #     params[:unit]
       params.require(:unit).permit(:name, :supply, :minerals, :gas, :build_time, :size, 
-        :armor, :armor_upgrade, :health, :race, :cargo, :sc_attributes => [])
+        :armor, :armor_upgrade, :health, :race_id, :cargo, :sc_attributes => [])
     end
 end

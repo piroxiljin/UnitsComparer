@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_171105) do
+ActiveRecord::Schema.define(version: 2019_09_29_193834) do
 
   create_table "attacks", force: :cascade do |t|
     t.string "name"
@@ -53,17 +53,17 @@ ActiveRecord::Schema.define(version: 2019_09_27_171105) do
   end
 
   create_table "units", force: :cascade do |t|
-    t.string "name"
-    t.integer "supply"
-    t.integer "minerals"
-    t.integer "gas"
-    t.integer "build_time"
-    t.float "size"
-    t.integer "cargo"
-    t.integer "armor"
-    t.integer "armor_upgrade"
-    t.integer "health"
-    t.integer "shield"
+    t.string "name", default: "Unit"
+    t.integer "supply", default: 1
+    t.integer "minerals", default: 50
+    t.integer "gas", default: 0
+    t.integer "build_time", default: 8
+    t.float "size", default: 0.75
+    t.integer "cargo", default: 1
+    t.integer "armor", default: 0
+    t.integer "armor_upgrade", default: 1
+    t.integer "health", default: 45
+    t.integer "shield", default: 0
     t.string "sc_attributes"
     t.float "cooldown"
     t.float "speed"
