@@ -53,6 +53,13 @@ class UnitsController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    @unit = Unit.find(params[:id])
+    @unit.destroy
+  
+    redirect_to units_path
+  end
   
   private
     def unit_params
