@@ -14,7 +14,12 @@ class UnitsController < ApplicationController
   def new
     @sc_attributes = ScAttribute.all
     @races = Race.all
-    @unit = Unit.new
+    if params[:race]
+      race = Race.where(name: params[:race]).take!
+      @unit = race.units.build
+    else
+      @unit = Unit.new
+    end
   end
 
   def edit
