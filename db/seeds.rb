@@ -23,3 +23,11 @@ ScAttribute.create([
     {attr_type: :special, short: 'Psi', name: 'Psionic'},
     {attr_type: :special, short: 'S', name: 'Structure'}
 ])
+
+AttackType.create([
+    {name: 'Instant', short: '-'},
+    {name: 'Splash', short: 'S'},
+    {name: 'Projectile', short: 'P'},
+    {name: 'Linear/Lined', short: 'L'},
+    {name: 'Bounce', short: 'B'}
+])

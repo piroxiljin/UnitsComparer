@@ -3,19 +3,17 @@
 one:
   air: false
   ground: false
-  melee: false
-  range: 1
-  range_upgrade: 1
-  damage: 1
-  damage_upgrade: 1
-  unit: one
+  attack: 1.5
+  attack_upgrade: 1.5
+  attack_count: 1
+  cooldown: 1.5
+  attack_type: 
 
 two:
   air: false
   ground: false
-  melee: false
-  range: 1
-  range_upgrade: 1
-  damage: 1
-  damage_upgrade: 1
-  unit: two
+  attack: 1.5
+  attack_upgrade: 1.5
+  attack_count: 1
+  cooldown: 1.5
+  attack_type: 

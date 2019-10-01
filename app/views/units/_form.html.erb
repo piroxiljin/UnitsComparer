@@ -49,6 +49,11 @@
     <%= form.label 'attributes'.humanize %>
     <%= form.collection_check_boxes(:sc_attributes, @sc_attributes, :short, :name, checked: JSON.parse(unit[:sc_attributes]) )%>
   </p>
+  <%= form.fields_for :attacks do |builder|%>
+    <%= render 'attack_fields', f: builder %>
+  <% end %>
+
+  <%= link_to_add_fields 'Add attack', form, :attacks %>
   <p>
     <%= form.submit %>
   </p>

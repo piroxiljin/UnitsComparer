@@ -10,21 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_190549) do
+ActiveRecord::Schema.define(version: 2019_10_01_143239) do
+
+  create_table "attack_types", force: :cascade do |t|
+    t.string "name"
+    t.string "short"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "attacks", force: :cascade do |t|
     t.string "name"
-    t.boolean "air"
-    t.boolean "ground"
-    t.boolean "melee"
-    t.integer "range"
-    t.integer "range_upgrade"
-    t.integer "damage"
-    t.integer "damage_upgrade"
-    t.float "cooldown"
+    t.boolean "air", default: true
+    t.boolean "ground", default: true
+    t.boolean "melee", default: false
+    t.integer "range", default: 5
+    t.integer "range_upgrade", default: 0
+    t.integer "attack", default: 10
+    t.integer "attack_upgrade", default: 1
+    t.float "cooldown", default: 1.07
     t.integer "unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "attack_count", default: 1
+    t.integer "attack_type_id"
+    t.index ["attack_type_id"], name: "index_attacks_on_attack_type_id"
     t.index ["unit_id"], name: "index_attacks_on_unit_id"
   end
 

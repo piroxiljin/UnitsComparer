@@ -1,0 +1,24 @@
+<fieldset>
+  <p>
+    <%= f.label :name %> 
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :air %>
+    <%= f.check_box :air %>
+    <%= f.label :ground %>
+    <%= f.check_box :ground %>
+  </p>
+  <p>
+    <%= f.label :attack %>
+    <%= f.number_field :attack, in: 0.0..1000 %>
+    <%= f.label :attack_upgrade %>
+    <%= f.number_field :attack_upgrade, in: 0.0..100 %>
+    <%= f.label :attack_count %>
+    <%= f.number_field :attack_count,in: 0..100 %>
+  </p>
+  <p>
+    <%= f.label :cooldown %>
+    <%= f.number_field :cooldown, in: 0.0..100, step: 0.01 %>
+  </p>
+</fieldset>
