@@ -11,9 +11,11 @@
 </table>
 
 <%= @unit.attacks.find_each do |attack| %>
-  <p>
-    <strong>Attack name: <%= attack[:name]%></strong>
-  </p>
+  <% if !attack[:name].blank? %>
+    <p>
+      <strong>Attack name: <%= attack[:name] %></strong>
+    </p>
+  <% end %>
   <table>
     <tr>
       <th>Attack</th>
