@@ -21,4 +21,8 @@
     <%= f.label :cooldown %>
     <%= f.number_field :cooldown, in: 0.0..100, step: 0.01 %>
   </p>
+  <p>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "Delete attack", '#', class: "remove_fields" %>
+  </p>
 </fieldset>
