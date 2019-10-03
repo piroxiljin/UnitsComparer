@@ -15,7 +15,7 @@ ScAttribute.create([
     {attr_type: :armor, short: 'L', name: 'Light'},
     {attr_type: :attack, short: 'Melee', name: 'Melee'},
     {attr_type: :attack, short: 'Ranged', name: 'Ranged'},
-    {attr_type: :movement, short: 'A', name: 'Air'},
+    {attr_type: :movement, short: 'Air', name: 'Air'},
     {attr_type: :movement, short: 'G', name: 'Ground'},
     {attr_type: :special, short: 'Detector', name: 'Detector'},
     {attr_type: :special, short: 'Heroic', name: 'Heroic'},
