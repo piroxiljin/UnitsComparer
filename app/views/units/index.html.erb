@@ -6,17 +6,29 @@
  
   <% @races.each do |current_race|%>
     <tr>
-      <td colspan="12"><%= current_race[:name]%></td>
+      <td colspan="16"><%= current_race[:name]%></td>
       <td><%= link_to 'Add', new_unit_path(race: current_race[:name]) %></td>
     </tr>
     <% @units.where(race: current_race).find_each do |unit| %>
-        <%= render 'table_unit_row', unit: unit do |u| %>
-        <td><%= link_to 'Show', unit_path(u) %></td>
-        <td><%= link_to 'Edit', edit_unit_path(u) %></td>
-        <td><%= link_to 'Destroy', unit_path(unit),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+      <% if unit.attacks.blank? %>
+        <%= render 'table_unit_row', unit: unit do |u|%>
+          <td><%= link_to 'Show', unit_path(u) %></td>
+          <td><%= link_to 'Edit', edit_unit_path(u) %></td>
+          <td><%= link_to 'Destroy', unit_path(unit),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+      <% else %>
+        <% unit.attacks.find_each do |attack| %>
+          <%= render 'table_unit_row', unit: unit, attack: attack do |u| %>
+            <td><%= link_to 'Show', unit_path(u) %></td>
+            <td><%= link_to 'Edit', edit_unit_path(u) %></td>
+            <td><%= link_to 'Destroy', unit_path(unit),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+      <%end%>
     <% end %>
   <% end %>
 </table>

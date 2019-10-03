@@ -1,5 +1,12 @@
     <tr>
-      <td><%= unit.name %></td>
+      <td>
+        <%= unit.name %>
+        <% if local_assigns[:attack] %>
+          <%= " #{attack[:name]}" if !attack[:name].blank? %>
+          <%= " vs Ground" if attack[:name].blank? && !attack[:air] && attack[:ground] %>
+          <%= " vs Air" if attack[:name].blank? && attack[:air] && !attack[:ground] %>
+        <% end %>
+      </td>
       <td><%= unit.supply %></td>
       <td><%= unit.minerals %></td>
       <td><%= unit.gas %></td>
@@ -8,6 +15,17 @@
       <td><%= unit.cargo %></td>
       <td><%= unit.armor %></td>
       <td><%= unit.health %></td>
-      <td><%= unit.sc_attributes %></td>
+      <td><%= unit.shield && unit.shield > 0 ? unit.shield : "-" %></td>
+      <td><%= JSON.parse(unit.sc_attributes).reject { |a| a.blank? }.join(", ") %></td>
+      <td>
+        <% if local_assigns[:attack] %>
+          <%= "#{attack[:attack]} (+#{attack[:attack_upgrade]})" %> 
+          <% if attack[:attack_count] > 1 %>
+            &times; <%= attack[:attack_count] %>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= '%2.2f' % [attack.cooldown] if local_assigns[:attack] %></td>
+      <td><%= '%2.2f' % [unit.dps(attack, 0)] if local_assigns[:attack] %></td>
       <%= yield unit %>
     </tr>

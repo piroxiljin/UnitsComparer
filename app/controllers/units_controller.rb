@@ -76,6 +76,6 @@ class UnitsController < ApplicationController
       puts params
  #     params[:unit]
       params.require(:unit).permit(:name, :supply, :minerals, :gas, :build_time, :size, 
-        :armor, :armor_upgrade, :health, :race_id, :cargo, attacks_attributes: Attack.attribute_names.map(&:to_sym).push(:_destroy), :sc_attributes => [])
+        :armor, :armor_upgrade, :health, :shield, :race_id, :cargo, attacks_attributes: Attack.attribute_names.map(&:to_sym).push(:_destroy), :sc_attributes => [])
     end
 end

@@ -7,7 +7,13 @@
 <table>
 <table>
   <%= render 'table_header' %>
-  <%= render 'table_unit_row', unit: @unit %>
+  <% if @unit.attacks.blank? %>
+    <%= render 'table_unit_row', unit: @unit%>
+  <% else %>
+    <% @unit.attacks.find_each do |attack| %>
+      <%= render 'table_unit_row', unit: @unit, attack: attack %>
+    <% end %>  
+  <% end %>
 </table>
 
 <%= @unit.attacks.find_each do |attack| %>
