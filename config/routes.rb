@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :sc_attributes
   resources :races
   resources :units
+
+  get 'clash', to: 'clashes#show'
 end

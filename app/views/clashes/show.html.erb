@@ -1,0 +1,29 @@
+<strong>Compare units</strong>
+<table>
+  <tr>
+    <th />
+      <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
+        <% grouped_defenders.each do |d| %>
+          <th class=<%= "clash_header_#{race.name.downcase}"%>>
+            <%= d.name %>
+          </th>
+        <% end %>
+      <% end %>
+  </tr>
+  <% attackers.group_by(&:race).each do |race, grouped_attackers| %>
+    <% grouped_attackers.each do |a| %>
+      <tr>
+        <th class=<%= "clash_header_#{race.name.downcase}"%>>
+          <%= a.name %>
+        </th>
+        <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
+          <% grouped_defenders.each do |d| %>
+            <td>
+              <%= operation.call( a, a.attacks.first, d) %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
