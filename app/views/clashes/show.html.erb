@@ -1,41 +1,45 @@
 <strong>Compare units</strong>
-<table>
-  <tr>
-    <th />
-      <% defenders_offset = 0 %>
-      <% defenders.group_by(&:race).each do | race, grouped_defenders | %>
-        <% grouped_defenders.each_with_index do |d, d_index| %>
-          <% armor_upgrade_levels.each do |armor_level| %>
-            <th class=<%= "clash_header_#{race.name.downcase}#{(d_index + defenders_offset).odd? ? '_alt' : ''}"%>>
-              <%= "#{d.name} armor #{armor_level}" %>
-            </th>
-          <% end %>  
-        <% end %>
-        <% defenders_offset += grouped_defenders.size %>
-      <% end %>
-  </tr>
-  <% attackers_offset = 0 %>
-  <% attackers.group_by(&:race).each do |race, grouped_attackers| %>
-    <% grouped_attackers.each_with_index do |a, a_index| %>
-      <% attack_upgrade_levels.each do |attack_level| %>
-        <tr>
-          <th class=<%= "clash_header_#{race.name.downcase}#{(a_index + attackers_offset).odd? ? '_alt' : ''}"%>>
-            <%= "#{a.name} +#{attack_level}" %>
-          </th>
-          <% defenders_offset = 0 %>
-          <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
-            <% grouped_defenders.each_with_index do |d, d_index| %>
-              <% armor_upgrade_levels.each do |armor_level| %>
-                <td class=<%= "clash_cell#{(a_index + d_index + attackers_offset + defenders_offset).odd? ? '_alt' : ''}" %>>
-                  <%= operation.call( a, a.attacks.first, attack_level, d, armor_level) %>
-                </td>
-              <% end %>
+<table id='clashes'>
+  <thead>
+    <tr>
+      <th />
+        <% defenders_offset = 0 %>
+        <% defenders.group_by(&:race).each do | race, grouped_defenders | %>
+          <% grouped_defenders.each_with_index do |d, d_index| %>
+            <% armor_upgrade_levels.each do |armor_level| %>
+              <th class=<%= "clash_header_#{race.name.downcase}#{(d_index + defenders_offset).odd? ? '_alt' : ''}"%>>
+                <%= "#{d.name} armor #{armor_level}" %>
+              </th>
             <% end %>
-            <% defenders_offset += grouped_defenders.size %>
           <% end %>
-        </tr>
+          <% defenders_offset += grouped_defenders.size %>
+        <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% attackers_offset = 0 %>
+    <% attackers.group_by(&:race).each do |race, grouped_attackers| %>
+      <% grouped_attackers.each_with_index do |a, a_index| %>
+        <% attack_upgrade_levels.each do |attack_level| %>
+          <tr>
+            <th class=<%= "clash_header_#{race.name.downcase}#{(a_index + attackers_offset).odd? ? '_alt' : ''}"%>>
+              <%= "#{a.name} +#{attack_level}" %>
+            </th>
+            <% defenders_offset = 0 %>
+            <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
+              <% grouped_defenders.each_with_index do |d, d_index| %>
+                <% armor_upgrade_levels.each do |armor_level| %>
+                  <td class=<%= "clash_cell#{(a_index + d_index + attackers_offset + defenders_offset).odd? ? '_alt' : ''}" %>>
+                    <%= operation.call( a, a.attacks.first, attack_level, d, armor_level) %>
+                  </td>
+                <% end %>
+              <% end %>
+              <% defenders_offset += grouped_defenders.size %>
+            <% end %>
+          </tr>
+        <% end %>
       <% end %>
+      <% attackers_offset += grouped_attackers.size %>
     <% end %>
-    <% attackers_offset += grouped_attackers.size %>
-  <% end %>
+  </tbody>
 </table>

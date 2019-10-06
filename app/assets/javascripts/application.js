@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.fixedheadertable
 //= require_tree .
