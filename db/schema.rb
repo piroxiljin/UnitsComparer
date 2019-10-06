@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_143239) do
     t.integer "supply", default: 1
     t.integer "minerals", default: 50
     t.integer "gas", default: 0
-    t.integer "build_time", default: 8
+    t.integer "build_time", default: 12
     t.float "size", default: 0.75
     t.integer "cargo", default: 1
     t.integer "armor", default: 0
