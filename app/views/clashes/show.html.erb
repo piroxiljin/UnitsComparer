@@ -2,28 +2,34 @@
 <table>
   <tr>
     <th />
-      <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
-        <% grouped_defenders.each do |d| %>
-          <th class=<%= "clash_header_#{race.name.downcase}"%>>
-            <%= d.name %>
-          </th>
+      <% defenders.group_by(&:race).each do |race, grouped_defenders | %>
+        <% grouped_defenders.each_with_index do |d, d_index| %>
+          <% armor_upgrade_levels.each do |armor_level| %>
+            <th class=<%= "clash_header_#{race.name.downcase}#{d_index.odd? ? '_alt' : ''}"%>>
+              <%= "#{d.name} armor #{armor_level}" %>
+            </th>
+          <% end %>  
         <% end %>
       <% end %>
   </tr>
   <% attackers.group_by(&:race).each do |race, grouped_attackers| %>
-    <% grouped_attackers.each do |a| %>
-      <tr>
-        <th class=<%= "clash_header_#{race.name.downcase}"%>>
-          <%= a.name %>
-        </th>
-        <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
-          <% grouped_defenders.each do |d| %>
-            <td>
-              <%= operation.call( a, a.attacks.first, d) %>
-            </td>
+    <% grouped_attackers.each_with_index do |a, a_index| %>
+      <% attack_upgrade_levels.each do |attack_level| %>
+        <tr>
+          <th class=<%= "clash_header_#{race.name.downcase}#{a_index.odd? ? '_alt' : ''}"%>>
+            <%= "#{a.name} +#{attack_level}" %>
+          </th>
+          <% defenders.group_by(&:race).each do |race, grouped_defenders| %>
+            <% grouped_defenders.each_with_index do |d, d_index| %>
+              <% armor_upgrade_levels.each do |armor_level| %>
+                <td class=<%= "clash_cell#{(a_index + d_index).odd? ? '_alt' : ''}" %>>
+                  <%= operation.call( a, a.attacks.first, attack_level, d, armor_level) %>
+                </td>
+              <% end %>
+            <% end %>
           <% end %>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     <% end %>
   <% end %>
 </table>

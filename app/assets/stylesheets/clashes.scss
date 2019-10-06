@@ -2,13 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 th.clash_header_zerg {
-    background: pink
+  background: pink
+}
+
+th.clash_header_zerg_alt {
+  background: darken(pink, 10%)
 }
 
 th.clash_header_terran {
-    background: lightgreen
+  background: lightgreen
+}
+
+th.clash_header_terran_alt {
+  background: darken(lightgreen, 10%)
 }
 
 th.clash_header_protoss {
-    background: lightblue
+  background: lightblue
+}
+
+th.clash_header_protoss_alt {
+  background: darken(lightblue, 10%)
+}
+
+td.clash_cell_alt {
+  background: lightgrey
 }
