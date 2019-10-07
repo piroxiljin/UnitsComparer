@@ -26,7 +26,8 @@ gem 'duktape'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3'
+gem 'jquery-FixedHeaderTable-rails', '~> 1.3'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
